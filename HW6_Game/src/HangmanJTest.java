@@ -8,10 +8,19 @@ class HangmanJTest {
 	@BeforeEach
 	void setUp() throws Exception {
 	}
-
+	
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void createWord() {
+		PlayGame a = new PlayGame();
+		String test = a.createWord();
+		assertNotNull(test);
 	}
-
+	
+	@Test
+	void createArray() {
+		PlayGame a = new PlayGame();
+		a.createWord();
+		String[] test = a.createBoard();
+		assertTrue(test != null);
+	}
 }
