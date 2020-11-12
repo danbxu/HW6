@@ -73,9 +73,7 @@ public class PlayGame {
 	public String incorrectGuesses () {
 		String output = "";
 		for (int i = 0; i < badGuesses.size()-1; i++) {
-			if (badGuesses.get(i+1) == null) {
-			}
-			else {
+			if (badGuesses.get(i+1) != null) {
 				output+= "[" + badGuesses.get(i+1) + "]" + " ";
 			}
 		}

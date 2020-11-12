@@ -50,6 +50,8 @@ class HangmanJTest {
 	void inCorrectGuesses() {
 		PlayGame a = new PlayGame();
 		a.createWord();
+		a.printBoard("");
+		a.printBoard("");
 		a.printBoard("x");
 		a.printBoard("z");
 		a.printBoard("q");
@@ -64,5 +66,18 @@ class HangmanJTest {
 		PlayGame a = new PlayGame();
 		a.createWord();
 		assertNotNull(a.makeWordSet());
+	}
+	
+	@Test
+	void RegularHangmanRunner() {
+		RegularHangmanRunner a = new RegularHangmanRunner();
+		assertNotNull(a);
+	}
+	
+	
+	@Test
+	void RegularHangman() {
+		RegularHangMan a = new RegularHangMan();
+		assertNotNull(a);
 	}
 }
