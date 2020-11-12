@@ -64,9 +64,9 @@ public class PlayGame {
 
 			}
 		}
-		else {
-			System.out.println("Letter already chosen. Choose another letter please.");
-		}
+//		else {
+//			System.out.println("Letter already chosen. Choose another letter please.");
+//		}
 		return output;
 	}
 	

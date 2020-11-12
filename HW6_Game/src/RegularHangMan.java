@@ -24,6 +24,7 @@ public class RegularHangMan {
 				System.out.println("Please put another input.");
 				input = s.next();
 			}
+			guesses.add(input);
 			System.out.println("_________________________");
 			System.out.println("Current board:");
 			System.out.println(a.printBoard(input));
