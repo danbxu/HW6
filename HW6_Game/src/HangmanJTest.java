@@ -75,9 +75,9 @@ class HangmanJTest {
 	}
 	
 	
-	@Test
-	void RegularHangman() {
-		RegularHangMan a = new RegularHangMan();
-		assertNotNull(a);
-	}
+//	@Test
+//	void RegularHangman() {
+//		RegularHangMan a = new RegularHangMan();
+//		assertEquals(a.RegularHangman(), "You won!");
+//	}
 }
