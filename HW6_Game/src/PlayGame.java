@@ -6,7 +6,8 @@ public class PlayGame {
 	ArrayList<String> wordsToChooseFrom;
 	Random b; 
 	static String chosenWord;
-	ArrayList<String> guesses;
+	ArrayList<String> guesses = new ArrayList<String>();
+	ArrayList<String> badGuesses = new ArrayList<String>();
 
 	public String createWord() {
 		InputDictionary a = new InputDictionary();
@@ -18,7 +19,7 @@ public class PlayGame {
 	}
 
 
-	public String[] createBoard() {
+	public String[] createWordArray() {
 		String[] make = new String[chosenWord.length()];
 
 		for (int i = 0; i < chosenWord.length(); i++) {
@@ -29,31 +30,37 @@ public class PlayGame {
 	}
 
 
-	public void printBoard(String letter) {
-		guesses.add(letter);
-		for (int i = 0; i < chosenWord.length(); i++) {
-			String b = String.valueOf(chosenWord.charAt(i));
-			if (guesses.contains(b)) {
-				System.out.println(b + "  ");
+	public String printBoard(String letter) {
+		String output = "";
+		if (!guesses.contains(letter)) {
+			guesses.add(letter);
+			String [] word = createWordArray();
+			for (int i = 0; i < word.length; i++) {
+				String b = word[i];
+				if (guesses.contains(b)) {
+					output+=b + "  ";
+
+				}
+				else {
+					output+="_" + "  ";
+					badGuesses.add(letter);
+				}
 
 			}
-			else {
-				System.out.println("_" + "  ");
-			}
-
 		}
+		else {
+			System.out.println("Letter already chosen. Choose another letter please.");
+		}
+		return output;
 	}
 	
-	public static void main(String[] args) {
-		PlayGame c = new PlayGame();
-		c.createWord();
-		System.out.println(c.createWord());
-		c.createBoard();
-		System.out.println(Arrays.toString(c.createBoard()));
-		c.printBoard("a");
-
-
-		
-
+	public String incorrectGuesses () {
+		String output = "";
+		for (int i = 0; i < badGuesses.size(); i++) {
+			output+= "[" + badGuesses.get(i) + "]" + " ";
+		}
+	
+		return output;
 	}
+	
 }

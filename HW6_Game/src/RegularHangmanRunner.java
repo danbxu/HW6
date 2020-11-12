@@ -2,7 +2,7 @@
 public class RegularHangmanRunner {
 	
 	public static void main(String[] args) {
-	RegularHangman a = new RegularHangman();
+	RegularHangMan a = new RegularHangMan();
 	//a.play
 		
 	}
