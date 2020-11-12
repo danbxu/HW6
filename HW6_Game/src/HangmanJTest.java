@@ -58,4 +58,11 @@ class HangmanJTest {
 		String test = a.incorrectGuesses();
 		assertNotNull(test);
 	}
+	
+	@Test
+	void makeWordSet() {
+		PlayGame a = new PlayGame();
+		a.createWord();
+		assertNotNull(a.makeWordSet());
+	}
 }

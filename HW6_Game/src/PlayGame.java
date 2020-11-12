@@ -7,7 +7,8 @@ public class PlayGame {
 	Random b; 
 	static String chosenWord;
 	ArrayList<String> guesses = new ArrayList<String>();
-	ArrayList<String> badGuesses = new ArrayList<String>();
+	ArrayList<String> badGuesses = new ArrayList<String>();;
+	ArrayList<String> set = new ArrayList<String>();
 
 	public String createWord() {
 		InputDictionary a = new InputDictionary();
@@ -28,6 +29,17 @@ public class PlayGame {
 		}
 		return make;
 	}
+	
+	
+	public ArrayList<String> makeWordSet() {
+		String [] toSet = createWordArray();
+		for (int i = 0; i < toSet.length; i++) { 
+			if (!set.contains(toSet[i])) {
+				set.add(toSet[i]);
+			}
+		}
+		return set;
+	}
 
 
 	public String printBoard(String letter) {
@@ -35,6 +47,11 @@ public class PlayGame {
 		if (!guesses.contains(letter)) {
 			guesses.add(letter);
 			String [] word = createWordArray();
+			ArrayList<String> set = makeWordSet();
+			if (!set.contains(letter)) {
+				badGuesses.add(letter);
+			}
+			
 			for (int i = 0; i < word.length; i++) {
 				String b = word[i];
 				if (guesses.contains(b)) {
@@ -43,7 +60,6 @@ public class PlayGame {
 				}
 				else {
 					output+="_" + "  ";
-					badGuesses.add(letter);
 				}
 
 			}
@@ -56,11 +72,15 @@ public class PlayGame {
 	
 	public String incorrectGuesses () {
 		String output = "";
-		for (int i = 0; i < badGuesses.size(); i++) {
-			output+= "[" + badGuesses.get(i) + "]" + " ";
+		for (int i = 0; i < badGuesses.size()-1; i++) {
+			if (badGuesses.get(i+1) == null) {
+			}
+			else {
+				output+= "[" + badGuesses.get(i+1) + "]" + " ";
+			}
 		}
-	
+
 		return output;
 	}
-	
+
 }
