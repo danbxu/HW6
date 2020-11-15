@@ -9,6 +9,7 @@ public class PlayGame {
 	ArrayList<String> guesses = new ArrayList<String>();
 	ArrayList<String> badGuesses = new ArrayList<String>();;
 	ArrayList<String> set = new ArrayList<String>();
+	
 
 	public String createWord() {
 		InputDictionary a = new InputDictionary();
@@ -18,7 +19,6 @@ public class PlayGame {
 		chosenWord =  wordsToChooseFrom.get(random);
 		return chosenWord;
 	}
-
 
 	public String[] createWordArray() {
 		String[] make = new String[chosenWord.length()];
@@ -79,6 +79,57 @@ public class PlayGame {
 		}
 
 		return output;
+	}
+	
+	public ArrayList<String> dictionarySpliter(int wordlength) {
+		//start with createword, and .length and put into dSpliter and
+		//dictionary have to split to yes/no to length of chosenWord
+		
+		ArrayList<String> splitDictionary = new ArrayList<>(); 
+		InputDictionary a = new InputDictionary();
+		wordsToChooseFrom = a.createGameWords();
+		
+		
+		for (int i = 0; i < wordsToChooseFrom.size(); i++) {
+			if (wordsToChooseFrom.get(i).length() == wordlength) {
+				splitDictionary.add(wordsToChooseFrom.get(i));
+			}
+	   
+		}
+		
+		return splitDictionary;
+	}
+	
+	public HashMap<Integer, ArrayList<String>> matchWords (ArrayList<String> lettersToCheck, ArrayList<String> splittedDictionary) {
+		HashMap<String, String> a = new HashMap<>();
+		
+		
+		
+		
+		
+		for (int i = 0; i < checkWords.size(); i++) {
+			Map<k,v>;
+	
+			
+		}
+		
+		
+		
+		
+		/*
+		 * 
+		System.out.println("Method 3");
+		//3. Lambda
+		db.forEach((k, v) -> {
+			if (v.contains(actor))
+				System.out.println(k);
+			//myMovies.add(k);
+		});
+		 */
+		
+		
+		return a;
+		
 	}
 
 }
