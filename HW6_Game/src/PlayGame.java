@@ -100,20 +100,19 @@ public class PlayGame {
 		return splitDictionary;
 	}
 	
-	public HashMap<Integer, ArrayList<String>> matchWords (ArrayList<String> lettersToCheck, ArrayList<String> splittedDictionary) {
-		HashMap<String, String> a = new HashMap<>();
+	public HashMap<Integer, ArrayList<String>> matchWords (ArrayList<String> lettersToCheck, ArrayList<String> splitDictionary) {
+		HashMap<Integer, ArrayList<String>> a = new HashMap<>();
 		
 		
 		
 		
 		
-		for (int i = 0; i < checkWords.size(); i++) {
-			Map<k,v>;
-	
-			
+		//This creates the correct number of keys
+		for (int i = 0; i < Math.pow(2, chosenWord.length()); i++) {
+			Map<i, splitDictionary>
 		}
 		
-		
+		//take th
 		
 		
 		/*
