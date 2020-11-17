@@ -26,6 +26,7 @@ public class EvilHangMan {
 		String evilWord;
 		
 		while (counter < firstSet.size()) {
+			System.out.println(resetDict.toString());
 			System.out.println("Guess a letter:");
 			System.out.println("_________________________");
 			String input = s.next();
@@ -46,6 +47,7 @@ public class EvilHangMan {
 					}
 				}
 			}
+			//usable code
 			ArrayList<String> truncateDict = new ArrayList<String>();
 			for (int i = 0; i < smallDict.size(); i++) {
 				ArrayList<String> wordSet = a.makeEvilWordSet(smallDict.get(i));
@@ -61,7 +63,7 @@ public class EvilHangMan {
 					truncateDict.add(smallDict.get(i));
 				}
 				
-			}
+			//
 			System.out.println("_________________________");
 			System.out.println("Current board:");
 			System.out.println(a.printEvilBoard(evilWord,input));
@@ -71,6 +73,7 @@ public class EvilHangMan {
 			System.out.println();
 			System.out.println(truncateDict);
 			resetDict = truncateDict;
+			System.out.println(resetDict);
 			System.out.println(truncateDict.size());
 
 			if (set.contains(input)) {

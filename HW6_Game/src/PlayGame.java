@@ -139,6 +139,18 @@ public class PlayGame {
 		return output;
 	}
 	
+	//todo
+	public String incorrectEvilGuesses () {
+		String output = "";
+		for (int i = 0; i < badGuesses.size()-1; i++) {
+			if (badGuesses.get(i+1) != null) {
+				output+= "[" + badGuesses.get(i+1) + "]" + " ";
+			}
+		}
+
+		return output;
+	}
+	
 	public ArrayList<String> dictionarySpliter(int wordlength) {
 		
 		ArrayList<String> splitDictionary = new ArrayList<>(); 
@@ -179,7 +191,7 @@ public class PlayGame {
 		HashMap<String, ArrayList<String>> wordFamilies = new HashMap<String, ArrayList<String>>();
 		for (int i = 0; i < splitDictionary.size(); i++) {
 			String key = createMapKey(splitDictionary.get(i), letter);
-			if (wordFamilies.get(key) == null) {
+			if (wordFamilies.get(key) == null) { //just made this change
 				ArrayList<String> words = new ArrayList<String>();
 				words.add(splitDictionary.get(i));
 				wordFamilies.put(key, words);
