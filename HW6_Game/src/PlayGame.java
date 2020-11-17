@@ -9,6 +9,8 @@ public class PlayGame {
 	ArrayList<String> guesses = new ArrayList<String>();
 	ArrayList<String> badGuesses = new ArrayList<String>();;
 	ArrayList<String> set = new ArrayList<String>();
+	int maxListSize = 0;
+	ArrayList<String> biggestDict = new ArrayList<String>();
 	
 
 	public String createWord() {
@@ -100,19 +102,53 @@ public class PlayGame {
 		return splitDictionary;
 	}
 	
-	public HashMap<Integer, ArrayList<String>> matchWords (ArrayList<String> lettersToCheck, ArrayList<String> splitDictionary) {
-		HashMap<Integer, ArrayList<String>> a = new HashMap<>();
-		
-		
-		
-		
-		
-		//This creates the correct number of keys
-		for (int i = 0; i < Math.pow(2, chosenWord.length()); i++) {
-			Map<i, splitDictionary>
+	public String createMapKey(String word, String letter) {
+		String key = "";
+		String[] array = new String[word.length()];
+
+		for (int i = 0; i < word.length(); i++) {
+			array[i] = String.valueOf(word.charAt(i));
+
 		}
-		
-		//take th
+		for (int i = 0; i < array.length; i++) {
+			if (array[i].equals(letter)) {
+				key += "1";
+			}
+			else {
+				key+= "0";
+			}
+		}
+		return key;
+	}
+	
+	public HashMap<String, ArrayList<String>> matchWords (ArrayList<String> splitDictionary, String letter) {
+		HashMap<String, ArrayList<String>> wordFamilies = new HashMap<String, ArrayList<String>>();
+		for (int i = 0; i < splitDictionary.size(); i++) {
+			String key = createMapKey(splitDictionary.get(i), letter);
+			if (wordFamilies.get(key) == null) {
+				ArrayList<String> words = new ArrayList<String>();
+				words.add(splitDictionary.get(i));
+				wordFamilies.put(key, words);
+			}
+			else {
+				ArrayList<String> created = wordFamilies.get(key);
+				created.add(splitDictionary.get(i));
+				wordFamilies.put(key, created);
+			}
+		}
+		return wordFamilies;
+	}
+	
+	
+	public ArrayList<String> newDictionary (HashMap<String, ArrayList<String>> matchWords) {
+		matchWords.forEach((k,v) -> {
+			if (v.size() > maxListSize) {
+				maxListSize = v.size();
+				biggestDict = v;
+			}
+		});
+		return biggestDict;
+	}
 		
 		
 		/*
@@ -127,8 +163,8 @@ public class PlayGame {
 		 */
 		
 		
-		return a;
-		
-	}
+//		return a;
+//		
+//	}
 
 }

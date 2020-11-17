@@ -2,6 +2,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.lang.*;
+import java.util.ArrayList;
 
 class HangmanJTest {
 
@@ -72,6 +74,21 @@ class HangmanJTest {
 	void RegularHangmanRunner() {
 		RegularHangmanRunner a = new RegularHangmanRunner();
 		assertNotNull(a);
+	}
+	
+	@Test
+	void createKeyTest() {
+		PlayGame a = new PlayGame();
+		String b = a.createMapKey("hello", "l");
+		assertEquals(b, "00110", "it failed");
+	}
+	
+	@Test
+	void dictionarySplitter() {
+		PlayGame a = new PlayGame();
+		ArrayList<String> dict = a.dictionarySpliter(4);
+		assertNotNull(dict);
+
 	}
 	
 	
