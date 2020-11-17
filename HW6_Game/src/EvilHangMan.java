@@ -11,9 +11,11 @@ public class EvilHangMan {
 		ArrayList <String> firstSet = a.makeEvilWordSet(chosenWord);
 		set = firstSet;
 		ArrayList <String> guesses = new ArrayList <String> (); 
+		ArrayList <String> correctGuesses = new ArrayList <String> (); 
 		int counter = 0; 
 		int deathCounter = 0;
 		ArrayList<String> newDict = a.dictionarySpliter(chosenWord.length());
+
 
 		System.out.println("Here is your word:");
 		System.out.println(a.printBoard(""));
@@ -37,6 +39,29 @@ public class EvilHangMan {
 			evilWord = a.createEvilWord(smallDict);
 			System.out.println(evilWord);
 			set = a.makeEvilWordSet(evilWord);
+			for (int i = 0; i < set.size(); i++) {
+				for (int j = 0; j < guesses.size(); j++) {
+					if(set.get(i).equals(guesses.get(j))) {
+						correctGuesses.add(set.get(i));
+					}
+				}
+			}
+			ArrayList<String> truncateDict = new ArrayList<String>();
+			for (int i = 0; i < smallDict.size(); i++) {
+				ArrayList<String> wordSet = a.makeEvilWordSet(smallDict.get(i));
+				int checker = 0;
+				for (int j = 0; j < wordSet.size(); j++) {
+					for (int k = 0; k < correctGuesses.size(); k++) {
+						if (wordSet.get(j).equals(correctGuesses.get(k))) {
+							checker++;
+						}
+					}
+				}
+				if (checker == correctGuesses.size()) {
+					truncateDict.add(smallDict.get(i));
+				}
+				
+			}
 			System.out.println("_________________________");
 			System.out.println("Current board:");
 			System.out.println(a.printEvilBoard(evilWord,input));
@@ -44,8 +69,9 @@ public class EvilHangMan {
 			System.out.println("Incorrect guesses:");
 			System.out.println(a.incorrectGuesses());
 			System.out.println();
-			resetDict = smallDict;
-			System.out.println(resetDict.size());
+			System.out.println(truncateDict);
+			resetDict = truncateDict;
+			System.out.println(truncateDict.size());
 
 			if (set.contains(input)) {
 				counter++;
