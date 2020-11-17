@@ -21,6 +21,15 @@ public class PlayGame {
 		chosenWord =  wordsToChooseFrom.get(random);
 		return chosenWord;
 	}
+	
+	public String createEvilWord(ArrayList<String> dict) {
+		b = new Random();
+		int random = b.nextInt(dict.size());
+		String evilWord = dict.get(random);
+		return evilWord;
+	}
+	
+	
 
 	public String[] createWordArray() {
 		String[] make = new String[chosenWord.length()];
@@ -33,8 +42,29 @@ public class PlayGame {
 	}
 	
 	
+	public String[] createEvilWordArray(String word) {
+		String[] make = new String[word.length()];
+
+		for (int i = 0; i < word.length(); i++) {
+			make[i] = String.valueOf(word.charAt(i));
+
+		}
+		return make;
+	}
+	
+	
 	public ArrayList<String> makeWordSet() {
 		String [] toSet = createWordArray();
+		for (int i = 0; i < toSet.length; i++) { 
+			if (!set.contains(toSet[i])) {
+				set.add(toSet[i]);
+			}
+		}
+		return set;
+	}
+	
+	public ArrayList<String> makeEvilWordSet(String word) {
+		String [] toSet = createEvilWordArray(word);
 		for (int i = 0; i < toSet.length; i++) { 
 			if (!set.contains(toSet[i])) {
 				set.add(toSet[i]);
@@ -66,9 +96,35 @@ public class PlayGame {
 
 			}
 		}
-//		else {
-//			System.out.println("Letter already chosen. Choose another letter please.");
-//		}
+
+		return output;
+	}
+	
+	public String printEvilBoard(String word ,String letter) {
+		String output = "";
+		if (!guesses.contains(letter)) {
+			guesses.add(letter);
+			String [] wordArray = createEvilWordArray(word);
+			ArrayList<String> set = makeEvilWordSet(word);
+			for (int i = 0; i < guesses.size(); i++) {
+				if (!set.contains(guesses.get(i))) {
+					badGuesses.add(guesses.get(i));
+				}
+			}
+
+			for (int j = 0; j < wordArray.length; j++) {
+				String b = wordArray[j];
+				if (guesses.contains(b)) {
+					output+=b + "  ";
+
+				}
+				else {
+					output+="_" + "  ";
+				}
+
+			}
+		}
+
 		return output;
 	}
 	
@@ -84,8 +140,6 @@ public class PlayGame {
 	}
 	
 	public ArrayList<String> dictionarySpliter(int wordlength) {
-		//start with createword, and .length and put into dSpliter and
-		//dictionary have to split to yes/no to length of chosenWord
 		
 		ArrayList<String> splitDictionary = new ArrayList<>(); 
 		InputDictionary a = new InputDictionary();
@@ -149,21 +203,15 @@ public class PlayGame {
 		});
 		return biggestDict;
 	}
-		
-		
-		/*
-		 * 
-		System.out.println("Method 3");
-		//3. Lambda
-		db.forEach((k, v) -> {
-			if (v.contains(actor))
-				System.out.println(k);
-			//myMovies.add(k);
-		});
-		 */
-		
-		
-//		return a;
+
+	
+//	public static void main(String[] args) {
+//		PlayGame a = new PlayGame();
+//		ArrayList<String> b = a.dictionarySpliter(2);
+//		System.out.println(b.toString());
+//		HashMap<String, ArrayList<String>> c = a.matchWords(b,"a");
+//		ArrayList<String> d =  a.newDictionary(c);
+//		System.out.println(d.toString());
 //		
 //	}
 

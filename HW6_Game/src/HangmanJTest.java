@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.lang.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 class HangmanJTest {
 
@@ -88,6 +89,14 @@ class HangmanJTest {
 		PlayGame a = new PlayGame();
 		ArrayList<String> dict = a.dictionarySpliter(4);
 		assertNotNull(dict);
+
+	}
+	
+	void creatHash() {
+		PlayGame a = new PlayGame();
+		ArrayList<String> dict = a.dictionarySpliter(4);
+		HashMap<String, ArrayList<String>> b = a.matchWords(dict, "e");
+		assertNotNull(b.get("0000"));
 
 	}
 	
