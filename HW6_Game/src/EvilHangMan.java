@@ -3,7 +3,7 @@ import java.lang.*;
 
 public class EvilHangMan {
 
-	public void EvilHangMan() {
+	public void EvilHangman() {
 		Scanner s = new Scanner(System.in);
 		PlayGame a = new PlayGame();
 		String chosenWord = a.createWord();
