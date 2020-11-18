@@ -109,7 +109,7 @@ public class PlayGame {
 			String [] wordArray = createEvilWordArray(word);
 			ArrayList<String> set = makeEvilWordSet(word);
 			for (int i = 0; i < guesses.size(); i++) {
-				if (!set.contains(guesses.get(i))) {
+				if (!set.contains(guesses.get(i)) && !badGuesses.contains(guesses.get(i))) {
 					badGuesses.add(guesses.get(i));
 				}
 			}
@@ -131,18 +131,6 @@ public class PlayGame {
 	}
 	
 	public String incorrectGuesses () {
-		String output = "";
-		for (int i = 0; i < badGuesses.size()-1; i++) {
-			if (badGuesses.get(i+1) != null) {
-				output+= "[" + badGuesses.get(i+1) + "]" + " ";
-			}
-		}
-
-		return output;
-	}
-	
-	//todo
-	public String incorrectEvilGuesses () {
 		String output = "";
 		for (int i = 0; i < badGuesses.size()-1; i++) {
 			if (badGuesses.get(i+1) != null) {

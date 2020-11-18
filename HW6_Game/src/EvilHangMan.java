@@ -22,8 +22,7 @@ public class EvilHangMan {
 		System.out.println();
 		ArrayList<String> resetDict = new ArrayList<String>();
 		resetDict = newDict;
-		System.out.println(resetDict.size());
-		System.out.println(resetDict.toString());
+
 		String evilWord;
 		System.out.println("Input the number of incorrect guesses you would like:");
 		int manyWrong = s.nextInt();
@@ -41,12 +40,9 @@ public class EvilHangMan {
 			guesses.add(input);
 			HashMap<String, ArrayList<String>> map = a.matchWords(resetDict, input);
 			ArrayList<String> smallDict = a.newDictionary(map);
-			System.out.println(smallDict.toString());
 			resetDict = smallDict;
-			System.out.println(resetDict.toString());
 			evilWord = a.createEvilWord(resetDict);
 			set = a.makeEvilWordSet(evilWord);
-			System.out.println(evilWord);
 			
 			System.out.println("_________________________");
 			System.out.println("Current board:");
@@ -68,8 +64,6 @@ public class EvilHangMan {
 					System.out.println("Game over! The correct word was " + evilWord + ". As expected you lost. Mwahahaha!");
 				}
 			}
-			System.out.println(counter);
-			System.out.println(deathCounter);
 
 		}
 		if (counter == set.size()) {
