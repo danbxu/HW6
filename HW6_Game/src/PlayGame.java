@@ -11,6 +11,7 @@ public class PlayGame {
 	ArrayList<String> set = new ArrayList<String>();
 	int maxListSize = 0;
 	ArrayList<String> biggestDict = new ArrayList<String>();
+
 	
 
 	public String createWord() {
@@ -65,6 +66,7 @@ public class PlayGame {
 	
 	public ArrayList<String> makeEvilWordSet(String word) {
 		String [] toSet = createEvilWordArray(word);
+		ArrayList<String> set = new ArrayList<String>();
 		for (int i = 0; i < toSet.length; i++) { 
 			if (!set.contains(toSet[i])) {
 				set.add(toSet[i]);
@@ -213,6 +215,7 @@ public class PlayGame {
 				biggestDict = v;
 			}
 		});
+		maxListSize = 0;
 		return biggestDict;
 	}
 

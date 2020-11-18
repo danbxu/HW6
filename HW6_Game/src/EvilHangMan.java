@@ -18,18 +18,22 @@ public class EvilHangMan {
 
 
 		System.out.println("Here is your word:");
-		System.out.println(a.printBoard(""));
+		System.out.println(a.printEvilBoard(chosenWord,""));
 		System.out.println();
-		ArrayList<String> resetDict;
+		ArrayList<String> resetDict = new ArrayList<String>();
 		resetDict = newDict;
 		System.out.println(resetDict.size());
+		System.out.println(resetDict.toString());
 		String evilWord;
+		System.out.println("Input the number of incorrect guesses you would like:");
+		int manyWrong = s.nextInt();
 		
-		while (counter < firstSet.size()) {
-			System.out.println(resetDict.toString());
+
+		while(counter < set.size()) {
 			System.out.println("Guess a letter:");
 			System.out.println("_________________________");
 			String input = s.next();
+			System.out.println(input);
 			while (guesses.contains(input) == true) {
 				System.out.println("Please put another input.");
 				input = s.next();
@@ -37,33 +41,13 @@ public class EvilHangMan {
 			guesses.add(input);
 			HashMap<String, ArrayList<String>> map = a.matchWords(resetDict, input);
 			ArrayList<String> smallDict = a.newDictionary(map);
-			evilWord = a.createEvilWord(smallDict);
-			System.out.println(evilWord);
+			System.out.println(smallDict.toString());
+			resetDict = smallDict;
+			System.out.println(resetDict.toString());
+			evilWord = a.createEvilWord(resetDict);
 			set = a.makeEvilWordSet(evilWord);
-			for (int i = 0; i < set.size(); i++) {
-				for (int j = 0; j < guesses.size(); j++) {
-					if(set.get(i).equals(guesses.get(j))) {
-						correctGuesses.add(set.get(i));
-					}
-				}
-			}
-			//usable code
-			ArrayList<String> truncateDict = new ArrayList<String>();
-			for (int i = 0; i < smallDict.size(); i++) {
-				ArrayList<String> wordSet = a.makeEvilWordSet(smallDict.get(i));
-				int checker = 0;
-				for (int j = 0; j < wordSet.size(); j++) {
-					for (int k = 0; k < correctGuesses.size(); k++) {
-						if (wordSet.get(j).equals(correctGuesses.get(k))) {
-							checker++;
-						}
-					}
-				}
-				if (checker == correctGuesses.size()) {
-					truncateDict.add(smallDict.get(i));
-				}
-				
-			//
+			System.out.println(evilWord);
+			
 			System.out.println("_________________________");
 			System.out.println("Current board:");
 			System.out.println(a.printEvilBoard(evilWord,input));
@@ -71,27 +55,27 @@ public class EvilHangMan {
 			System.out.println("Incorrect guesses:");
 			System.out.println(a.incorrectGuesses());
 			System.out.println();
-			System.out.println(truncateDict);
-			resetDict = truncateDict;
-			System.out.println(resetDict);
-			System.out.println(truncateDict.size());
-
+			
+			
 			if (set.contains(input)) {
 				counter++;
 			}
 
 			else {
 				deathCounter++;
-				if (deathCounter == 8) {
+				if (deathCounter == manyWrong) {
 					counter = set.size() + 1;
-					System.out.println("Game over! The correct word was " + evilWord + ".");
+					System.out.println("Game over! The correct word was " + evilWord + ". As expected you lost. Mwahahaha!");
 				}
 			}
 			System.out.println(counter);
 			System.out.println(deathCounter);
+
 		}
-
+		if (counter == set.size()) {
+			System.out.println("You won evil hangman! Give yourself a pat on the back and give us an A.");
+			
+		}
+		
 	}
-
-
 }
