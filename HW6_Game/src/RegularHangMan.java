@@ -1,9 +1,19 @@
+//Collaborators: Corey Parker, Daniel Xu
+
 import java.util.*;
 import java.lang.*;
 
 public class RegularHangMan {
 
-
+    /*
+     * This is the regular hangman game. This game will start by choosing a single word
+     * from the dictionary and that said word will be guessed by the user. The counter (incremented) 
+     * will be number of letters correctly guessed and exists in set.size(); (set.size() is
+     * an array of letters of the word to be guessed and when counter = set.size();
+     * the game will end. Keep in mind, set.size() is made with makeWordSet(); which creates
+     * a set of unique letters. If the user guesses incorrectly, the deathcounter is incremented
+     * and once deathcounter = 8, the game will end. 
+     */
 	public void RegularHangman() {
 		Scanner s = new Scanner(System.in);
 		PlayGame a = new PlayGame();

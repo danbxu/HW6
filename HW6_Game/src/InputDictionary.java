@@ -1,8 +1,15 @@
+//Collaborators: Corey Parker, Daniel Xu
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+/*
+ * This will input the dictionary of words that can be choosed from
+ * for our evilhangman game. 
+ */
 public class InputDictionary {
 	
 	public ArrayList<String> createGameWords () {
