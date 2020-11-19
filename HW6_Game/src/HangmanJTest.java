@@ -92,18 +92,38 @@ class HangmanJTest {
 
 	}
 	
+	@Test
 	void creatHash() {
 		PlayGame a = new PlayGame();
 		ArrayList<String> dict = a.dictionarySpliter(4);
 		HashMap<String, ArrayList<String>> b = a.matchWords(dict, "e");
 		assertNotNull(b.get("0000"));
+		ArrayList<String> c = a.newDictionary(b);
+		assertNotNull(c);
 
 	}
 	
 	
-//	@Test
-//	void RegularHangman() {
-//		RegularHangMan a = new RegularHangMan();
-//		assertEquals(a.RegularHangman(), "You won!");
-//	}
+	@Test
+	void printEvilBoard() {
+		PlayGame a = new PlayGame();
+		String c = a.printEvilBoard("hello", "l");
+		String d = a.printEvilBoard("hello", "l");
+		String e = a.printEvilBoard("hello", "u");
+		assertNotNull(c);
+
+	}
+	
+	@Test
+	void createEvilWord() {
+		PlayGame a = new PlayGame();
+		ArrayList<String> b = a.dictionarySpliter(4);
+		assertNotNull(a.createEvilWord(b));
+
+
+	}
+	
+	
+	
+
 }
