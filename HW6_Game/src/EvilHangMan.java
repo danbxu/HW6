@@ -5,10 +5,10 @@ import java.util.*;
 import java.lang.*;
 
 public class EvilHangMan {
-	
+
 	//
 	//call it run the game 
-	
+
 	/*
 	 * This is the entire  EvilHangMan game. This starts with creating a set of needed ArrayLists, counter, and deathcounter.
 	 * Counter will be used to check how many letters are guessed correctly and once it is equal to set.size();, the program will
@@ -41,8 +41,8 @@ public class EvilHangMan {
 
 		String evilWord;
 		System.out.println("Input the number of incorrect guesses you would like:");
+
 		int manyWrong = s.nextInt();
-		
 
 		while(counter < set.size()) {
 			System.out.println("Guess a letter:");
@@ -59,7 +59,7 @@ public class EvilHangMan {
 			resetDict = smallDict;
 			evilWord = a.createEvilWord(resetDict);
 			set = a.makeEvilWordSet(evilWord);
-			
+
 			System.out.println("_________________________");
 			System.out.println("Current board:");
 			System.out.println(a.printEvilBoard(evilWord,input));
@@ -67,8 +67,8 @@ public class EvilHangMan {
 			System.out.println("Incorrect guesses:");
 			System.out.println(a.incorrectGuesses());
 			System.out.println();
-			
-			
+
+
 			if (set.contains(input)) {
 				counter++;
 			}
@@ -84,8 +84,8 @@ public class EvilHangMan {
 		}
 		if (counter == set.size()) {
 			System.out.println("You won evil hangman! Give yourself a pat on the back and give us an A.");
-			
+
 		}
-		
+
 	}
 }
