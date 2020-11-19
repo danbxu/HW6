@@ -12,6 +12,7 @@ class HangmanJTest {
 	void setUp() throws Exception {
 	}
 	
+	//This checks for the word and ensures it is not null
 	@Test
 	void createWord() {
 		PlayGame a = new PlayGame();
@@ -19,6 +20,7 @@ class HangmanJTest {
 		assertNotNull(test);
 	}
 	
+	//this is creates the array of letters and ensures it is not null
 	@Test
 	void createArray() {
 		PlayGame a = new PlayGame();
@@ -26,7 +28,10 @@ class HangmanJTest {
 		String[] test = a.createWordArray();
 		assertNotNull(test);
 	}
-	
+	/*This checks to ensure that the correct letter is accepted
+	 * and it is not null
+	 * 
+	 */
 	@Test
 	void printBoard() {
 		PlayGame a = new PlayGame();
@@ -48,7 +53,9 @@ class HangmanJTest {
 		String test7= a.printBoard("y");
 		assertNotNull(test7);
 	}
-	
+	/*
+	 * This checks for putting the correct guesses and incorrect guesses
+	 */
 	@Test
 	void inCorrectGuesses() {
 		PlayGame a = new PlayGame();
@@ -64,6 +71,7 @@ class HangmanJTest {
 		assertNotNull(test);
 	}
 	
+	// This checks if the set of unique letters is created 
 	@Test
 	void makeWordSet() {
 		PlayGame a = new PlayGame();
@@ -71,12 +79,14 @@ class HangmanJTest {
 		assertNotNull(a.makeWordSet());
 	}
 	
+	//This checks the regularhangman
 	@Test
 	void RegularHangmanRunner() {
 		RegularHangmanRunner a = new RegularHangmanRunner();
 		assertNotNull(a);
 	}
 	
+	//This checks for the correct key is made in respect to the word and letter's positions
 	@Test
 	void createKeyTest() {
 		PlayGame a = new PlayGame();
@@ -84,6 +94,7 @@ class HangmanJTest {
 		assertEquals(b, "00110", "it failed");
 	}
 	
+	//This checks if the dictionary is split appropriately initially with all words of length 4
 	@Test
 	void dictionarySplitter() {
 		PlayGame a = new PlayGame();
@@ -92,6 +103,10 @@ class HangmanJTest {
 
 	}
 	
+	/*
+	 * This checks the correct split and makes sure that the key created does not 
+	 * include the letter e. Thus, the split dictionary is made appropriately. 
+	 */
 	@Test
 	void creatHash() {
 		PlayGame a = new PlayGame();
@@ -104,6 +119,10 @@ class HangmanJTest {
 	}
 	
 	
+	/*
+	 * This checks the letter printed and what is saved into the string
+	 * is not null
+	 */
 	@Test
 	void printEvilBoard() {
 		PlayGame a = new PlayGame();
@@ -114,6 +133,10 @@ class HangmanJTest {
 
 	}
 	
+	
+    /*
+     * This checks if evilword is created correctly 
+     */
 	@Test
 	void createEvilWord() {
 		PlayGame a = new PlayGame();
