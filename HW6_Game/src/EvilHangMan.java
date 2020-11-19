@@ -77,7 +77,7 @@ public class EvilHangMan {
 				deathCounter++;
 				if (deathCounter == manyWrong) {
 					counter = set.size() + 1;
-					System.out.println("Game over! The correct word was " + evilWord + ". As expected you lost. Mwahahaha!");
+					System.out.println("Game over! The correct word was " + evilWord + ". Or was it? Mwahahaha!");
 				}
 			}
 
