@@ -10,16 +10,19 @@ public class EvilHangMan {
 	//call it run the game 
 
 	/*
-	 * This is the entire  EvilHangMan game. This starts with creating a set of needed ArrayLists, counter, and deathcounter.
+	 * This is the entire runTheEvilGame game. This starts with creating a set of needed ArrayLists, counter, and deathcounter.
 	 * Counter will be used to check how many letters are guessed correctly and once it is equal to set.size();, the program will
 	 * exit the bigger whileloop. deathcounter will be set by the user input, and deathcounter is the number incorrect tries
 	 * the user has before losing the game when deathcounter == manyWrong. After this is set, the game will begin
 	 * and the user will be prompted to input letter guesses. The methods we created will begin looking for new set of words
 	 * after considering each of the user input of different letters and narrowing down the set of of words after 
 	 * successive letters.
+	 * 
+	 * Note that the methods used in runTheEvilGame is tested in Junit testing and so we do not
+	 * test runTheEvilGame as a whole.
 	 */
 
-	public void EvilHangman() {
+	public void runTheEvilGame() {
 		Scanner s = new Scanner(System.in);
 		PlayGame a = new PlayGame();
 		String chosenWord = a.createWord();
