@@ -6,7 +6,7 @@ import java.lang.*;
 
 public class EvilHangMan {
 	
-	
+	//
 	//call it run the game 
 	
 	/*
